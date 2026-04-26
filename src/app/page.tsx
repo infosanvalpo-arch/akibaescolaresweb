@@ -39,7 +39,10 @@ import {
   Navigation as NavigationIcon,
 } from "lucide-react";
 
-// Configuración de form eliminada porque usamos Firebase Functions
+// ── EmailJS config ──
+const EMAILJS_SERVICE_ID  = "service_rok932j";
+const EMAILJS_TEMPLATE_ID = "template_ng7vkjh";
+const EMAILJS_PUBLIC_KEY  = "-_NtJaMNdYxS2wKY5";
 
 /* ── Intersection Observer hook for scroll-triggered animations ── */
 function useScrollAnimation(threshold = 0.15) {
@@ -73,26 +76,25 @@ export default function Home() {
     if (!formData.name || !formData.email) return;
     setFormStatus("sending");
     try {
-      const response = await fetch("https://us-central1-akiba-escolares-zhnby.cloudfunctions.net/sendContactEmail", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
+      // @ts-ignore — EmailJS loaded from CDN
+      await window.emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
           phone: formData.phone || "No indicado",
           institution: formData.institution || "No indicado",
           message: formData.message || "Sin mensaje",
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Error en la respuesta del servidor");
-      }
+          reply_to: formData.email,
+        },
+        EMAILJS_PUBLIC_KEY
+      );
 
       setFormStatus("success");
       setFormData({ name: "", email: "", phone: "", institution: "", message: "" });
     } catch (err) {
-      console.error("Fetch error:", err);
+      console.error("EmailJS error:", err);
       setFormStatus("error");
     }
   };

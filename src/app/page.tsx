@@ -37,6 +37,14 @@ import {
   AlertCircle as AlertCircleIcon,
   Briefcase as BriefcaseIcon,
   Navigation as NavigationIcon,
+  Scale as ScaleIcon,
+  FileText as FileTextIcon,
+  Sun as SunIcon,
+  Activity as ActivityIcon,
+  HeartPulse as HeartPulseIcon,
+  Wrench as WrenchIcon,
+  ShieldAlert as ShieldAlertIcon,
+  Flame as FlameIcon,
 } from "lucide-react";
 
 // ── EmailJS config ──
@@ -113,6 +121,7 @@ export default function Home() {
   const appSection = useScrollAnimation(0.1);
   const techSection = useScrollAnimation(0.1);
   const benefitsSection = useScrollAnimation(0.1);
+  const sgslSection = useScrollAnimation(0.1);
   const contactSection = useScrollAnimation(0.1);
 
   const navLinks = [
@@ -120,6 +129,7 @@ export default function Home() {
     { href: "#nosotros", label: "Nosotros" },
     { href: "#app", label: "Nuestra App" },
     { href: "#beneficios", label: "Beneficios" },
+    { href: "#sgsl", label: "SGSL" },
     { href: "#contacto", label: "Contacto" },
   ];
 
@@ -153,6 +163,33 @@ export default function Home() {
     { icon: BriefcaseIcon, title: "Para Transportistas", description: "Gestiona de forma integral toda tu flota de vehículos, asignación de choferes, mantenimientos y control de presupuestos." },
     { icon: NavigationIcon, title: "Para Conductores", description: "Aplicación optimizada para guiar rutas, marcar asistencia a bordo y reportar incidencias con un solo toque." },
     { icon: UsersIcon, title: "Para Padres y Apoderados", description: "Mayor tranquilidad siguiendo en tiempo real el autobús, con notificaciones push precisas de abordaje y descensos." },
+  ];
+
+  const legalFramework = [
+    { title: "Ley 16.744", desc: "Normas sobre accidentes del trabajo y enfermedades profesionales." },
+    { title: "Decreto Supremo 594", desc: "Condiciones sanitarias y ambientales básicas en los lugares de trabajo." },
+    { title: "Decreto Supremo 40", desc: "Obligación de informar los riesgos (Prevención de riesgos)." },
+    { title: "Decreto Supremo 67", desc: "Permite rebajar la tasa de cotización adicional por tener un SGSL." },
+    { title: "Ley 20.123", desc: "Normativas sobre subcontratación y servicios transitorios." },
+  ];
+
+  const sgslObligations = [
+    { title: "Afiliación a Mutualidad", desc: "Afiliación obligatoria a un organismo administrador (ACHS, Mutual, IST)." },
+    { title: "Derecho a Saber (ODI)", desc: "Informar por escrito a los trabajadores sobre los riesgos de su labor." },
+    { title: "Reglamento Interno (RIHS)", desc: "Gestionar riesgos y prevenir accidentes definiendo obligaciones y sanciones." },
+    { title: "Entrega de EPP", desc: "Proveer sin costo elementos de protección personal y capacitar en su uso." },
+  ];
+
+  const criticalRisks = [
+    { icon: WrenchIcon, title: "Mantenimiento Preventivo", desc: "Documentar las revisiones mecánicas de los vehículos como parte de la política de seguridad." },
+    { icon: FileTextIcon, title: "Procedimientos Seguros", desc: "Prácticas para garantizar la integridad de los estudiantes y la eficiencia del servicio basado en la normativa vigente." },
+    { icon: ActivityIcon, title: "Matriz de Riesgos", desc: "Herramienta visual que identifica, evalúa y clasifica peligros, permitiendo priorizar medidas preventivas." },
+    { icon: FlameIcon, title: "Uso de Extintores", desc: "Capacitación obligatoria teórico-práctica para identificar fuegos y manejar extintores ante emergencias." },
+    { icon: RouteIcon, title: "Seguridad Vial", desc: "Capacitación constante en manejo defensivo y cumplimiento estricto de tiempos de descanso para evitar fatiga." },
+    { icon: HeartPulseIcon, title: "Riesgos Psicosociales", desc: "Manejo del estrés y la carga emocional que implica el cuidado y traslado de menores." },
+    { icon: ShieldAlertIcon, title: "Protocolo TMERT", desc: "Identificar, evaluar y controlar factores de riesgo ergonómico como fuerza, postura y repetición." },
+    { icon: SunIcon, title: "Radiación UV", desc: "Gestionar el riesgo solar entregando bloqueador, ropa protectora y ajustando horarios al aire libre." },
+    { icon: ScaleIcon, title: "Ley Karin", desc: "Prevención, investigación y sanción del acoso laboral, sexual y violencia, protegiendo la salud mental." },
   ];
 
   return (
@@ -583,6 +620,103 @@ export default function Home() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── SGSL ──────────────────────────────────────── */}
+      <section id="sgsl" className="py-20 bg-white border-t border-navy/5">
+        <div ref={sgslSection.ref} className="container mx-auto px-4">
+          <div className={`text-center max-w-4xl mx-auto mb-16 ${sgslSection.visible ? 'animate-fade-up' : 'opacity-0'}`}>
+            <span className="text-celeste font-semibold text-sm uppercase tracking-wider">Gestión Legal y Prevención</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-navy mt-3 mb-6">
+              Sistema de Gestión de Seguridad y <span className="text-celeste">Salud en el Trabajo</span>
+            </h2>
+            <p className="text-lg text-navy/60">
+              No solo nos enfocamos en la seguridad de los niños, sino también en tu personal de trabajo.
+              Cumplimos estrictamente el marco legal chileno para brindar la máxima tranquilidad.
+            </p>
+          </div>
+
+          {/* Tarjetas Superiores */}
+          <div className="grid md:grid-cols-2 gap-6 mb-16">
+            <Card className={`shimmer-card border-0 shadow-xl bg-gradient-to-br from-white to-navy/5 ${sgslSection.visible ? 'animate-fade-right delay-100' : 'opacity-0'}`}>
+              <CardContent className="p-8">
+                <div className="flex items-center gap-4 mb-8 border-b border-navy/5 pb-4">
+                  <div className="w-14 h-14 bg-navy rounded-2xl flex items-center justify-center shadow-lg shadow-navy/20">
+                    <ScaleIcon className="w-7 h-7 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-navy">Marco Legal</h3>
+                </div>
+                <div className="space-y-5">
+                  {legalFramework.map((item, i) => (
+                    <div key={i} className="flex gap-4 group">
+                      <div className="w-2.5 h-2.5 rounded-full bg-celeste mt-1.5 shrink-0 group-hover:scale-150 transition-transform" />
+                      <div>
+                        <strong className="text-navy block text-lg mb-1">{item.title}</strong>
+                        <span className="text-navy/60 leading-snug block">{item.desc}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className={`shimmer-card border-0 shadow-xl bg-gradient-to-bl from-white to-green-50/50 ${sgslSection.visible ? 'animate-fade-left delay-200' : 'opacity-0'}`}>
+              <CardContent className="p-8">
+                <div className="flex items-center gap-4 mb-8 border-b border-navy/5 pb-4">
+                  <div className="w-14 h-14 bg-green-500 rounded-2xl flex items-center justify-center shadow-lg shadow-green-500/20">
+                    <CheckCircleIcon className="w-7 h-7 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-navy">Obligaciones Clave</h3>
+                </div>
+                <div className="space-y-6">
+                  {sgslObligations.map((item, i) => (
+                    <div key={i} className="flex gap-4 group">
+                      <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-green-500 transition-colors">
+                        <CheckIcon className="w-3.5 h-3.5 text-green-600 group-hover:text-white transition-colors" />
+                      </div>
+                      <div>
+                        <strong className="text-navy block text-lg mb-1">{item.title}</strong>
+                        <span className="text-navy/60 leading-snug block">{item.desc}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Acordeón de Riesgos Críticos */}
+          <div className={`max-w-5xl mx-auto ${sgslSection.visible ? 'animate-fade-up delay-300' : 'opacity-0'}`}>
+            <div className="text-center mb-8">
+              <h3 className="text-2xl md:text-3xl font-bold text-navy inline-flex items-center gap-3">
+                <ActivityIcon className="w-8 h-8 text-amarillo" />
+                Control de Riesgos Críticos
+              </h3>
+            </div>
+            
+            <Accordion type="single" collapsible className="grid md:grid-cols-2 gap-4 items-start">
+              {criticalRisks.map((risk, index) => (
+                <AccordionItem
+                  key={index}
+                  value={`risk-${index}`}
+                  className="bg-white rounded-2xl shadow-sm border border-navy/10 overflow-hidden col-span-1 shimmer-card"
+                >
+                  <AccordionTrigger className="px-5 py-5 hover:no-underline hover:bg-celeste/5 transition-colors [&[data-state=open]]:bg-celeste/10 group">
+                    <div className="flex items-center gap-4 text-left">
+                      <div className="w-12 h-12 bg-celeste/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-navy transition-all duration-300 group-hover:scale-110">
+                        <risk.icon className="w-6 h-6 text-celeste group-hover:text-white" />
+                      </div>
+                      <span className="text-base font-bold text-navy">{risk.title}</span>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-5 pb-5 pt-0">
+                    <div className="pl-[4.2rem] text-navy/65 leading-relaxed text-[15px] pr-4">{risk.desc}</div>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </div>
       </section>

@@ -296,8 +296,8 @@ export default function Home() {
               {/* Animated Stats */}
               <div className={`mt-12 grid grid-cols-3 gap-6 ${heroContent.visible ? 'animate-fade-up delay-400' : 'opacity-0'}`}>
                 {[
-                  { value: "+500", label: "Buses Monitoreados" },
-                  { value: "+50", label: "Colegios" },
+                  { value: "+100", label: "Buses Monitoreados" },
+                  { value: "+20", label: "Colegios" },
                   { value: "24/7", label: "Monitoreo" },
                 ].map((s, i) => (
                   <div key={i} className="text-center group">

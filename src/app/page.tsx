@@ -279,7 +279,7 @@ export default function Home() {
               </h1>
               <p className={`text-lg md:text-xl text-white/70 mb-8 max-w-xl mx-auto lg:mx-0 ${heroContent.visible ? 'animate-fade-up delay-200' : 'opacity-0'}`}>
                 Tecnología avanzada para el seguimiento en tiempo real de autobuses escolares.
-                Brindamos tranquilidad a padres y eficiencia a instituciones educativas.
+                Brindamos tranquilidad a padres y eficiencia a transportistas e instituciones educativas.
               </p>
               <div className={`flex flex-col sm:flex-row gap-4 justify-center lg:justify-start ${heroContent.visible ? 'animate-fade-up delay-300' : 'opacity-0'}`}>
                 <Button asChild size="lg" className="bg-amarillo hover:bg-amarillo/80 text-navy px-8 py-6 rounded-full font-bold text-lg shadow-xl shadow-amarillo/30 transition-all hover:shadow-amarillo/50 hover:scale-105">
